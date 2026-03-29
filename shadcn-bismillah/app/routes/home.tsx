@@ -32,11 +32,14 @@ import {ButtonGroupDemo} from "~/example/button-group-demo";
 import {CalendarDemo} from "~/example/calendar-demo";
 import {CheckboxDemo} from "~/example/checkbox-demo";
 import {ComboboxBasic} from "~/example/combobox-basic";
+import {DrawerWithSides} from "~/example/drawer-with-sides";
+import {DropdownMenuDemo} from "~/example/dropdown-menu-demo";
 
 export default function Home() {
   return (
     <>
       <div className={"m-6"}>
+          <DrawerWithSides/> <div className={"mt-12"}/>
           <CheckboxDemo/> <div className={"mt-12"}/>
           <CalendarDemo/> <div className={"mt-12"}/>
           <ButtonGroupDemo/> <div className={"mt-12"}/>
@@ -63,6 +66,7 @@ export default function Home() {
           <CarouselDemo/> <div className={"mt-12"}/>
           <TableDemo/> <div className={"mt-12"}/>
 
+          <DropdownMenuDemo/> <div className={"mt-12"}/>
           <ComboboxBasic/> <div className={"mt-12"}/>
           <SelectDemo/> <div className={"mt-12"}/>
           <NativeSelectDemo/> <div className={"mt-12"}/>
