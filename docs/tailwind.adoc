@@ -1,5 +1,25 @@
-```
+== Using vite
+```bash
 pnpm create vite tailwind-vite-bismillah
 cd tailwind-vite-bismillah
 pnpm install
+
+pnpm add tailwindcss @tailwindcss/vite
+```
+
+=== Add the `@tailwindcss/vite` plugin
+```js
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+```
+
+=== Import css in any css
+```
+file: src/App.css
+@import "tailwindcss";
 ```
