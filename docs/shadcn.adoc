@@ -1,0 +1,6 @@
+
+```bash
+pnpm dlx shadcn@latest init -t react-router
+cd shadcn-bismillah
+pnpm dlx shadcn@latest add --all
+```
