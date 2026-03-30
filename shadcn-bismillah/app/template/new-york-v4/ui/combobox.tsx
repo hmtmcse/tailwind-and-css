@@ -5,7 +5,7 @@ import { Combobox as ComboboxPrimitive } from "@base-ui/react"
 import { CheckIcon, ChevronDownIcon, XIcon } from "lucide-react"
 
 import { cn } from "../../../lib/utils"
-import { Button } from "../../template/new-york-v4/ui/button"
+import { Button } from "./button"
 import {
   InputGroup,
   InputGroupAddon,
