@@ -1,0 +1,98 @@
+== Layout
+* float
+* clear
+* object-fit
+* overflow
+* overscroll-behavior
+* position
+* top / right / bottom / left
+* visibility
+* z-index
+
+== Flexbox
+* flex-basis
+* flex-direction
+* flex-wrap
+* flex
+* flex-grow
+* flex-shrink
+* order
+* gap
+* justify-content
+* align-items
+* align-self
+
+== Grid
+* grid-template-columns
+* grid-column
+* grid-template-rows
+* grid-row
+* grid-auto-flow
+* grid-auto-columns
+* grid-auto-rows
+* gap
+* justify-items
+* justify-self
+* align-content
+* place-content
+* place-items
+* place-self
+
+== Spacing
+* padding
+* margin
+
+== Sizing
+* width / min-width / max-width
+* height / min-height / max-height
+* inline-size / min-inline-size / max-inline-size
+* block-size / min-block-size / max-block-size
+
+== Typography
+* font-family
+* font-size
+* font-weight
+* line-clamp / text-overflow
+* line-height
+* text-align
+* color
+* text-transform
+* text-wrap
+* text-indent
+* word-break
+* overflow-wrap
+* hyphens
+
+
+== Background
+* background-attachment
+* background-color
+* background-image
+* background-repeat
+* background-size
+
+== Border
+* border-radius
+* border-width
+* border-color
+* border-style
+* outline-width
+* outline-color
+* outline-style
+* outline-offset
+
+== Tables
+* border-collapse
+* border-spacing
+* table-layout
+* caption-side
+
+== xxxxx
+* xxxxx
+* xxxxx
+* xxxxx
+* xxxxx
+
+== Links
+* Official: https://tailwindcss.com/docs/aspect-ratio
+
