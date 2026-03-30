@@ -1,27 +1,15 @@
 import { UserNav } from "./components/user-nav"
 import {DataTable} from "~/task/components/data-table";
 import {columns} from "~/task/components/columns";
-import {promises as fs} from "fs";
-import path from "path";
-import {taskSchema} from "~/task/data/schema";
-import { z } from "zod"
+import {taskData} from "~/task/data/data";
 
 export async function loader() {
     return {message: "Hello Task"}
 }
 
-async function getTasks() {
-  const data = await fs.readFile(
-    path.join(process.cwd(), "app/task/data/tasks.json")
-  )
 
-  const tasks = JSON.parse(data.toString())
-
-  return z.array(taskSchema).parse(tasks)
-}
-
-export default async function TaskHome() {
-    const tasks = await getTasks()
+export default function TaskHome() {
+    const tasks: any = taskData
     return (
         <>
             <div className="hidden h-full flex-1 flex-col gap-8 p-8 md:flex">
