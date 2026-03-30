@@ -8,7 +8,7 @@ export default function Application(){
                 Bismillah
             </div>
 
-            <Button>Button</Button>
+            <Button variant={"secondary"}>Button</Button>
 
         </>
     )
