@@ -4,3 +4,24 @@
 pnpm create vite
 ```
 
+== Add Tailwind CSS
+```bash
+pnpm add tailwindcss @tailwindcss/vite
+```
+
+=== Add the `@tailwindcss/vite` plugin
+```js
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+```
+
+=== Import css in any css
+```
+file: src/App.css
+@import "tailwindcss";
+```
