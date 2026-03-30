@@ -1,4 +1,5 @@
 import "./assets/css/style.css"
+import {Button} from "./shadcn/ui/button.tsx";
 
 export default function Application(){
     return (
@@ -6,6 +7,9 @@ export default function Application(){
             <div className={"text-red-500 font-bold"}>
                 Bismillah
             </div>
+
+            <Button>Button</Button>
+
         </>
     )
 }

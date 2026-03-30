@@ -25,3 +25,19 @@ export default defineConfig({
 file: src/App.css
 @import "tailwindcss";
 ```
+
+
+== Add Shadcn
+```bash
+pnpm add class-variance-authority clsx tailwind-merge
+pnpm add tw-animate-css
+```
+
+* *class-variance-authority :* Manages component variants (e.g., size, color, state) in a clean, scalable way.
+* *clsx :* Combines class names conditionally
+* *tailwind-merge :* Resolves Tailwind CSS class conflicts (e.g., px-2 px-4 → px-4).
+
+=== Add Shadcn
+```bash
+pnpm add radix-ui
+```
