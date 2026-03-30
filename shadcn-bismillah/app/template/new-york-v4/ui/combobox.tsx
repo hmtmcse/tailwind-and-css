@@ -11,7 +11,7 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-} from "../../template/new-york-v4/ui/input-group"
+} from "./input-group"
 
 const Combobox = ComboboxPrimitive.Root
 
