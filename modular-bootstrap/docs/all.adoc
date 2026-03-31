@@ -6,3 +6,9 @@ pnpm init
 pnpm add bootstrap
 pnpm add -D sass vite
 ```
+
+== Dicision
+* Use bootstrap component which related to js
+** Accordion, Tab, Corocel, Modal etc
+* Use splited build for each component, such as accordion.css, if need then will include
+* Don't use bootstrap reboot add some custom fix for component use everything for tailwindcss v4
