@@ -1,0 +1,8 @@
+
+```
+mkdir modular-bootstrap
+cd modular-bootstrap
+pnpm init
+pnpm add bootstrap
+pnpm add -D sass vite
+```

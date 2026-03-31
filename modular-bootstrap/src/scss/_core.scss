@@ -1,0 +1,19 @@
+// 1. Functions first
+@import "bootstrap/scss/functions";
+
+// 2. Default variables (where $primary, etc., are defined)
+@import "bootstrap/scss/variables";
+
+// 3. DARK MODE variables (Bootstrap 5.3+ requires this for the root)
+@import "bootstrap/scss/variables-dark";
+
+// 4. THE MISSING PIECE: Maps
+// This is where $theme-colors-rgb is actually generated!
+@import "bootstrap/scss/maps";
+
+// 5. Mixins
+@import "bootstrap/scss/mixins";
+
+// 6. Root and Reboot
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
