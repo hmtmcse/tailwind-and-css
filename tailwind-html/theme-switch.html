@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="dark">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- Tailwind v4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- THEME CONFIG -->
+    <style type="text/tailwindcss">
+        @theme {
+            /* Map variables to Tailwind utilities */
+            --color-background: var(--background);
+            --color-foreground: var(--foreground);
+            --color-primary: var(--primary);
+            --color-primary-foreground: var(--primary-foreground);
+            --color-card: var(--card);
+            --color-card-foreground: var(--card-foreground);
+            --color-border: var(--border);
+        }
+
+        @layer theme {
+            :root {
+                /* LIGHT MODE */
+                --background: oklch(1 0 0);
+                --foreground: oklch(0.145 0 0);
+
+                --primary: oklch(0.205 0 0);
+                --primary-foreground: oklch(0.985 0 0);
+
+                --card: oklch(1 0 0);
+                --card-foreground: oklch(0.145 0 0);
+
+                --border: oklch(0.922 0 0);
+            }
+
+            @variant dark {
+                :root {
+                    /* DARK MODE */
+                    --background: oklch(0.145 0 0);
+                    --foreground: oklch(0.985 0 0);
+
+                    --primary: oklch(0.922 0 0);
+                    --primary-foreground: oklch(0.205 0 0);
+
+                    --card: oklch(0.205 0 0);
+                    --card-foreground: oklch(0.985 0 0);
+
+                    --border: oklch(1 0 0 / 10%);
+                }
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-foreground transition-colors duration-300">
+
+<div class="p-10 space-y-6 text-center">
+
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
+
+    <!-- Button -->
+    <button
+            onclick="toggleTheme()"
+            class="px-4 py-2 rounded-lg bg-primary text-primary-foreground"
+    >
+        Toggle Dark Mode
+    </button>
+
+    <!-- Card -->
+    <div class="p-6 rounded-lg bg-card text-card-foreground border border-border">
+        This is a themed card
+    </div>
+
+</div>
+
+<script>
+    function toggleTheme() {
+        document.documentElement.classList.toggle('dark');
+    }
+</script>
+
+</body>
+</html>
