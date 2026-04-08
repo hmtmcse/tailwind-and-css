@@ -1,0 +1,8 @@
+
+```bash
+# Install everything
+pnpm install
+
+# Run the application
+pnpm dev
+```
