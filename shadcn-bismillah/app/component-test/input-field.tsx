@@ -39,6 +39,26 @@ function BasicStructure() {
                     <Switch id="newsletter"/>
                     <FieldLabel htmlFor="newsletter">Subscribe to the newsletter</FieldLabel>
                 </Field>
+
+
+                <Field data-invalid>
+                    <FieldLabel htmlFor="email">Email</FieldLabel>
+                    <Input id="email" type="email" aria-invalid/>
+                    <FieldError>Enter a valid email address.</FieldError>
+                </Field>
+
+                <Field>
+                    <FieldLabel htmlFor="input-required">
+                        <span className="text-destructive">*</span> Required Field
+                    </FieldLabel>
+                    <Input
+                        id="input-required"
+                        placeholder="This field is required"
+                        required
+                    />
+                    <FieldDescription>This field must be filled out.</FieldDescription>
+                </Field>
+
             </FieldGroup>
         </FieldSet>
     )
