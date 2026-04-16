@@ -175,6 +175,79 @@ function BasicStructure() {
                 />
             </InputFrame>
 
+            <RadioGroup defaultValue="comfortable" className="w-fit mt-5">
+                <InputFrame
+                    label={"Default"}
+                    isError={false}
+                    errorMessage={"Please enter your name"}
+                    orientation={"horizontal"}
+                    isChildFirst={false}
+                >
+                    <RadioGroupItem value="default" id="r1"/>
+                </InputFrame>
+                <InputFrame
+                    label={"Comfortable"}
+                    isError={false}
+                    errorMessage={"Please enter your name"}
+                    orientation={"horizontal"}
+                    isChildFirst={false}
+                >
+                    <RadioGroupItem value="comfortable" id="r2"/>
+                </InputFrame>
+                <InputFrame
+                    label={"Compact"}
+                    isError={false}
+                    errorMessage={"Please enter your name"}
+                    orientation={"horizontal"}
+                    isChildFirst={false}
+                >
+                    <RadioGroupItem value="compact" id="r3"/>
+                </InputFrame>
+            </RadioGroup>
+
+
+            <InputFrame
+                className={"mt-5"}
+                label={"Name"}
+                required={true}
+                isError={false}
+                errorMessage={"Please enter your name"}
+                // hintsMessage={"Enter valid name"}
+                labelNext={<Badge variant="secondary" className="ml-auto">Beta</Badge>}>
+
+                <Combobox
+                    items={["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"]}
+                    multiple
+                    value={value}
+                    onValueChange={setValue}
+                >
+                    <ComboboxChips>
+                        <ComboboxValue>
+                            {value.map((item) => (
+                                <ComboboxChip key={item}>{item}</ComboboxChip>
+                            ))}
+                        </ComboboxValue>
+                        <ComboboxChipsInput placeholder="Add framework"/>
+                    </ComboboxChips>
+                    <ComboboxContent>
+                        <ComboboxEmpty>No items found.</ComboboxEmpty>
+                        <ComboboxList>
+                            {(item) => (
+                                <ComboboxItem key={item} value={item}>
+                                    {item}
+                                </ComboboxItem>
+                            )}
+                        </ComboboxList>
+                    </ComboboxContent>
+                </Combobox>
+
+            </InputFrame>
+
+
+
+
+
+
             <Field orientation="horizontal" className={"mt-5"}>
                 <Checkbox
                     id="terms-checkbox-2"
