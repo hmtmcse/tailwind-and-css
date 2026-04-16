@@ -152,29 +152,30 @@ function BasicStructure() {
 
             <InputFrame
                 className={"mt-5"}
-                label={"Accept terms and conditions"}
-                isError={false}
+                label={"Subscribe to the newsletter"}
                 orientation={"horizontal"}
                 isChildFirst={false}
                 hintsMessage={"Enter valid name"}
-                >
+            >
+                <Switch/>
+            </InputFrame>
+
+            <InputFrame
+                className={"mt-5"}
+                label={"Accept terms and conditions"}
+                isError={false}
+                errorMessage={"Please enter your name"}
+                orientation={"horizontal"}
+                isChildFirst={false}
+                hintsMessage={"By clicking this checkbox, you agree to the terms and conditions."}
+            >
                 <Checkbox
                     name="terms-checkbox-invalid"
                     aria-invalid
                 />
             </InputFrame>
 
-            <InputFrame
-                className={"mt-5"}
-                label={"Subscribe to the newsletter"}
-                orientation={"horizontal"}
-                isChildFirst={false}
-                // hintsMessage={"Enter valid name"}
-            >
-                <Switch/>
-            </InputFrame>
-
-            <Field orientation="horizontal">
+            <Field orientation="horizontal" className={"mt-5"}>
                 <Checkbox
                     id="terms-checkbox-2"
                     name="terms-checkbox-2"
@@ -619,7 +620,7 @@ function BasicStructure() {
                         <Field orientation="horizontal">
                             <Checkbox id="toggle-checkbox-2" name="toggle-checkbox-2"/>
                             <FieldContent>
-                                <FieldTitle>Enable notifications</FieldTitle>
+                                <FieldLabel>Enable notifications (1)</FieldLabel>
                                 <FieldDescription>
                                     You can enable or disable notifications at any time.
                                 </FieldDescription>

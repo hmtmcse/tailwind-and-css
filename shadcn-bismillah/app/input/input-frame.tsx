@@ -32,7 +32,7 @@ const fieldVariants = cva(
         horizontal: [
           "flex-row items-center",
           "[&>[data-slot=field-label]]:flex-auto",
-          "has-[>[data-slot=field-content]]:items-start has-[>[data-slot=field-content]]:[&>[role=checkbox],[role=radio]]:mt-px",
+          "has-[>[data-tag=input-frame-content]]:items-start has-[>[data-tag=input-frame-content]]:[&>[role=checkbox],[role=radio]]:mt-px",
         ]
       },
     },
@@ -47,7 +47,7 @@ function getLabel(labelKey: string, label?: string, required?: boolean, labelNex
     if (!label) {
         return ""
     }
-    let requiredLabel: any = required ? <span className="text-destructive relative top-[2.5px] required-symbol font-bold">*</span> : ""
+    let requiredSymbol: any = required ? <span className="text-destructive relative top-[2.5px] required-symbol font-bold">*</span> : ""
     return (
         <label data-tag={"label"} htmlFor={labelKey} className={cn(
             "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
@@ -55,7 +55,7 @@ function getLabel(labelKey: string, label?: string, required?: boolean, labelNex
             "has-[>[data-tag=input-frame]]:w-full has-[>[data-tag=input-frame]]:flex-col has-[>[data-tag=input-frame]]:rounded-md has-[>[data-tag=input-frame]]:border [&>*]:data-[tag=input-frame]:p-4",
             "has-data-[state=checked]:border-primary has-data-[state=checked]:bg-primary/5 dark:has-data-[state=checked]:bg-primary/10",
         )}>
-            {requiredLabel} {label} {labelNext}
+            {requiredSymbol} {label} {labelNext}
         </label>
     )
 }
@@ -86,13 +86,16 @@ export function InputFrame({className, label, required, errorMessage, hintsMessa
     const labelKey = generate12DigitNumber()
     const conditionalProps: any = {}
     let errorHintHTML: any = ""
+
+    if (hintsMessage) {
+        errorHintHTML = getHintsMessage(hintsMessage)
+    }
+
     if (isError) {
         conditionalProps["data-invalid"] = true
         if (errorMessage) {
             errorHintHTML = getErrorMessage(errorMessage)
         }
-    } else if (hintsMessage) {
-        errorHintHTML = getHintsMessage(hintsMessage)
     }
 
     let labelFirstHTML: any = ""
@@ -103,16 +106,29 @@ export function InputFrame({className, label, required, errorMessage, hintsMessa
         labelLastHTML = getLabel(labelKey, label, required, labelNext)
     }
 
+    let frameFooterHTML: any = (
+        <>
+            {labelLastHTML}
+            {errorHintHTML}
+        </>
+    )
+
+    if (orientation == "horizontal" && (labelLastHTML || errorHintHTML)) {
+        frameFooterHTML = (
+            <div data-tag={"input-frame-content"} className={cn("group/input-frame-content flex flex-1 flex-col gap-1 leading-snug")}>
+                {labelLastHTML}
+                {errorHintHTML}
+            </div>
+        )
+    }
+
     return (
         <div
             data-orientation={orientation}
             data-tag={"input-frame"} className={cn(fieldVariants({ orientation }), className)} {...conditionalProps}>
             {labelFirstHTML}
             {children}
-            <div className="group/field-content flex flex-1 flex-col gap-1.5 leading-snug">
-                {labelLastHTML}
-                {errorHintHTML}
-            </div>
+            {frameFooterHTML}
         </div>
     )
 }
