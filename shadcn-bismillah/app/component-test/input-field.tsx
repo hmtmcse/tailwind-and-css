@@ -68,6 +68,7 @@ import {
     ComboboxList, ComboboxTrigger, ComboboxValue
 } from "~/template/new-york-v4/ui/combobox";
 import {Item, ItemContent, ItemDescription, ItemTitle} from "~/template/new-york-v4/ui/item";
+import {InputFrame} from "~/input/input-frame";
 
 
 export async function loader() {
@@ -138,7 +139,79 @@ function BasicStructure() {
     const [value, setValue] = React.useState<string[]>([])
 
     return (
-        <FieldSet>
+        <>
+            <InputFrame
+                label={"Name"}
+                required={true}
+                isError={true}
+                errorMessage={"Please enter your name"}
+                // hintsMessage={"Enter valid name"}
+                labelNext={<Badge variant="secondary" className="ml-auto">Beta</Badge>}>
+                <Input autoComplete="off" placeholder="Name" />
+            </InputFrame>
+
+            <InputFrame
+                className={"mt-5"}
+                label={"Accept terms and conditions"}
+                isError={false}
+                orientation={"horizontal"}
+                isChildFirst={false}
+                hintsMessage={"Enter valid name"}
+                >
+                <Checkbox
+                    name="terms-checkbox-invalid"
+                    aria-invalid
+                />
+            </InputFrame>
+
+            <InputFrame
+                className={"mt-5"}
+                label={"Subscribe to the newsletter"}
+                orientation={"horizontal"}
+                isChildFirst={false}
+                // hintsMessage={"Enter valid name"}
+            >
+                <Switch/>
+            </InputFrame>
+
+            <Field orientation="horizontal">
+                <Checkbox
+                    id="terms-checkbox-2"
+                    name="terms-checkbox-2"
+                    defaultChecked
+                />
+
+                <FieldContent>
+                    <FieldLabel htmlFor="terms-checkbox-2">
+                        Accept terms and conditions
+                    </FieldLabel>
+                    <FieldDescription>
+                        By clicking this checkbox, you agree to the terms.
+                    </FieldDescription>
+                </FieldContent>
+
+            </Field>
+
+            <FieldGroup className="mx-auto w-56">
+                <Field orientation="horizontal" data-invalid>
+                    <Checkbox
+                        id="terms-checkbox-invalid"
+                        name="terms-checkbox-invalid"
+                        aria-invalid
+                    />
+                    <FieldLabel htmlFor="terms-checkbox-invalid">
+                        Accept terms and conditions
+                    </FieldLabel>
+                </Field>
+            </FieldGroup>
+
+            <Field className={"m-5"}>
+                <FieldLabel htmlFor="name">Full name</FieldLabel>
+                <Input id="name" autoComplete="off" placeholder="Evil Rabbit"/>
+                <FieldDescription>This appears on invoices and emails.</FieldDescription>
+            </Field>
+
+            <FieldSet>
             <FieldLegend>Profile</FieldLegend>
             <FieldDescription>This appears on invoices and emails.</FieldDescription>
             <FieldGroup>
@@ -181,9 +254,7 @@ function BasicStructure() {
                 <Field>
                     <FieldLabel htmlFor="input-badge">
                         Webhook URL{" "}
-                        <Badge variant="secondary" className="ml-auto">
-                            Beta
-                        </Badge>
+                        <Badge variant="secondary" className="ml-auto">Beta</Badge>
                     </FieldLabel>
                     <Input
                         id="input-badge"
@@ -529,6 +600,7 @@ function BasicStructure() {
                             name="terms-checkbox-2"
                             defaultChecked
                         />
+
                         <FieldContent>
                             <FieldLabel htmlFor="terms-checkbox-2">
                                 Accept terms and conditions
@@ -537,6 +609,7 @@ function BasicStructure() {
                                 By clicking this checkbox, you agree to the terms.
                             </FieldDescription>
                         </FieldContent>
+
                     </Field>
                     <Field orientation="horizontal" data-disabled>
                         <Checkbox id="toggle-checkbox" name="toggle-checkbox" disabled/>
@@ -822,6 +895,7 @@ function BasicStructure() {
 
             </FieldGroup>
         </FieldSet>
+        </>
     )
 }
 
