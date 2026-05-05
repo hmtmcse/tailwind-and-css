@@ -38,14 +38,6 @@ import { RadioGroup, RadioGroupItem } from "~/template/new-york-v4/ui/radio-grou
 import { Label } from "~/template/new-york-v4/ui/label";
 import {Checkbox} from "~/template/new-york-v4/ui/checkbox";
 import {Popover, PopoverContent, PopoverTrigger} from "~/template/new-york-v4/ui/popover";
-import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem
-} from "~/template/new-york-v4/ui/command";
-import {cn} from "~/lib/utils";
 import React from "react";
 import {NativeSelect, NativeSelectOptGroup, NativeSelectOption} from "~/template/new-york-v4/ui/native-select";
 import {
@@ -69,6 +61,7 @@ import {
 } from "~/template/new-york-v4/ui/combobox";
 import {Item, ItemContent, ItemDescription, ItemTitle} from "~/template/new-york-v4/ui/item";
 import {InputFrame} from "~/input/input-frame";
+import SelectField, {defaultOptions} from "~/component-test/select-field";
 
 
 export async function loader() {
@@ -140,14 +133,43 @@ function BasicStructure() {
 
     return (
         <>
+
+
+
             <InputFrame
-                label={"Name"}
-                required={true}
-                isError={true}
-                errorMessage={"Please enter your name"}
-                // hintsMessage={"Enter valid name"}
-                labelNext={<Badge variant="secondary" className="ml-auto">Beta</Badge>}>
-                <Input autoComplete="off" placeholder="Name" />
+                className={"mt-5 mb-5"}
+                label={"Description"}
+                required={true}>
+                <RadioGroup defaultValue="comfortable" className="w-fit ml-3">
+                    <InputFrame
+                        label={"Default"}
+                        isError={false}
+                        errorMessage={"Please enter your name"}
+                        hintsMessage={"All default sizes are 16px."}
+                        orientation={"horizontal"}
+                        isChildFirst={false}
+                    >
+                        <RadioGroupItem value="default"/>
+                    </InputFrame>
+                    <InputFrame
+                        label={"Comfortable"}
+                        isError={false}
+                        errorMessage={"Please enter your name"}
+                        orientation={"horizontal"}
+                        isChildFirst={false}
+                    >
+                        <RadioGroupItem value="comfortable"/>
+                    </InputFrame>
+                    <InputFrame
+                        label={"Compact"}
+                        isError={false}
+                        errorMessage={"Please enter your name"}
+                        orientation={"horizontal"}
+                        isChildFirst={false}
+                    >
+                        <RadioGroupItem value="compact" />
+                    </InputFrame>
+                </RadioGroup>
             </InputFrame>
 
             <InputFrame
@@ -161,7 +183,7 @@ function BasicStructure() {
             </InputFrame>
 
             <InputFrame
-                className={"mt-5"}
+                className={"mt-5 mb-5"}
                 label={"Accept terms and conditions"}
                 isError={false}
                 errorMessage={"Please enter your name"}
@@ -174,6 +196,21 @@ function BasicStructure() {
                     aria-invalid
                 />
             </InputFrame>
+
+
+
+
+            <InputFrame
+                label={"Name"}
+                required={true}
+                isError={true}
+                errorMessage={"Please enter your name"}
+                // hintsMessage={"Enter valid name"}
+                labelNext={<Badge variant="secondary" className="ml-auto">Beta</Badge>}>
+                <Input autoComplete="off" placeholder="Name" />
+            </InputFrame>
+
+
 
             <RadioGroup defaultValue="comfortable" className="w-fit mt-5">
                 <InputFrame
@@ -216,10 +253,13 @@ function BasicStructure() {
                 labelNext={<Badge variant="secondary" className="ml-auto">Beta</Badge>}>
 
                 <Combobox
-                    items={["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"]}
+                    items={["Next.js", "SvelteKit", "Remix", "Astro"]}
                     multiple
                     value={value}
-                    onValueChange={setValue}
+                    onValueChange={(inputValue: any) =>{
+                        console.log()
+                        setValue(inputValue)
+                    }}
                 >
                     <ComboboxChips>
                         <ComboboxValue>
@@ -229,6 +269,7 @@ function BasicStructure() {
                         </ComboboxValue>
                         <ComboboxChipsInput placeholder="Add framework"/>
                     </ComboboxChips>
+
                     <ComboboxContent>
                         <ComboboxEmpty>No items found.</ComboboxEmpty>
                         <ComboboxList>
@@ -244,6 +285,43 @@ function BasicStructure() {
             </InputFrame>
 
 
+            <InputFrame className={"mt-5"} label={"Website URL"} required={true} isError={true} errorMessage={"Please enter your website URL"}>
+
+                <InputGroup>
+                    <InputGroupInput aria-invalid id="input-group-url" placeholder="example.com"/>
+
+                    <InputGroupAddon>
+                        <InfoIcon/>
+                        <InputGroupText>https://</InputGroupText>
+                    </InputGroupAddon>
+
+                    <InputGroupAddon align="inline-end">
+                        <InfoIcon/>
+                    </InputGroupAddon>
+                    <InputGroupAddon align="inline-end"><InfoIcon/></InputGroupAddon>
+                </InputGroup>
+
+            </InputFrame>
+
+            <InputFrame className={"mt-5"} label={"Website URL"} required={true} isError={true} errorMessage={"Please enter your website URL"}>
+
+                <InputGroup>
+                    <InputGroupInput placeholder="example.com"/>
+
+                    <InputGroupText>https://</InputGroupText>
+
+                    <InputGroupAddon>
+                        <InfoIcon/>
+                        <InputGroupText>https://</InputGroupText>
+                    </InputGroupAddon>
+
+                    <InputGroupAddon align="inline-end">
+                        <InfoIcon/>
+                    </InputGroupAddon>
+                    <InputGroupAddon align="inline-end"><InfoIcon/></InputGroupAddon>
+                </InputGroup>
+
+            </InputFrame>
 
 
 
@@ -339,9 +417,9 @@ function BasicStructure() {
 
 
                 <Field>
-                    <FieldLabel htmlFor="input-group-url">Website URL</FieldLabel>
+                    <FieldLabel htmlFor="input-group-url">Website URL: Edited</FieldLabel>
                     <InputGroup>
-                        <InputGroupInput id="input-group-url" placeholder="example.com"/>
+                        <InputGroupInput  placeholder="example.com"/>
                         <InputGroupAddon>
                             <InputGroupText>https://</InputGroupText>
                         </InputGroupAddon>
@@ -386,14 +464,25 @@ function BasicStructure() {
                             placeholder="console.log('Hello, world!');"
                             className="font-mono text-sm"
                         />
+
                         <InputGroupAddon align="block-start">
                             <FileCodeIcon className="text-muted-foreground"/>
                             <InputGroupText className="font-mono">script.js</InputGroupText>
-                            <InputGroupButton size="icon-xs" className="ml-auto">
-                                <CopyIcon/>
-                                <span className="sr-only">Copy</span>
-                            </InputGroupButton>
+                            <div className={"ml-auto flex gap-1"}>
+                                <InputGroupButton size="icon-xs"> <CopyIcon/></InputGroupButton>
+                                <InputGroupButton size="icon-xs"> <CopyIcon/></InputGroupButton>
+                                <InputGroupButton size="icon-xs"> <CopyIcon/></InputGroupButton>
+                                <InputGroupButton size="icon-xs"> <CopyIcon/></InputGroupButton>
+                                <InputGroupButton size="icon-xs"> <CopyIcon/></InputGroupButton>
+                            </div>
                         </InputGroupAddon>
+
+                        <InputGroupAddon align="block-end">
+                            <InputGroupText >
+                                120 characters left
+                            </InputGroupText>
+                        </InputGroupAddon>
+
                     </InputGroup>
                     <FieldDescription>
                         Header positioned above the textarea.
@@ -886,6 +975,8 @@ function BasicStructure() {
                     </ComboboxContent>
                 </Combobox>
 
+
+
                 <Combobox
                     items={["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"]}
                     multiple
@@ -900,6 +991,8 @@ function BasicStructure() {
                         </ComboboxValue>
                         <ComboboxChipsInput placeholder="Add framework"/>
                     </ComboboxChips>
+
+
                     <ComboboxContent>
                         <ComboboxEmpty>No items found.</ComboboxEmpty>
                         <ComboboxList>
@@ -910,7 +1003,11 @@ function BasicStructure() {
                             )}
                         </ComboboxList>
                     </ComboboxContent>
+
+
                 </Combobox>
+
+
 
                 <Combobox items={["Next.js", "SvelteKit", "Nuxt.js", "Remix", "Astro"]} defaultValue={"SvelteKit"}>
                     <ComboboxInput placeholder="Select a framework" showClear/>

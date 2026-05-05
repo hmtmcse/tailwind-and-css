@@ -6,4 +6,5 @@ export default [
     route("/task", "task/task-home.tsx"),
     route("/testing/common", "component-test/common-test.tsx"),
     route("/testing/input", "component-test/input-field.tsx"),
+    route("/testing/select", "component-test/select-exp.tsx"),
 ] satisfies RouteConfig
