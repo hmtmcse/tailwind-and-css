@@ -37,7 +37,6 @@ interface SelectFieldProps {
     customItem?: (item: any, labelKey: string, valueKey: string, options: Array<any>) => React.ReactNode;
     defaultValue?: any;
     // async
-    // custom element - account
     // clean - value
 
 
@@ -77,8 +76,12 @@ export default function SelectField({options, labelKey, valueKey, isMulti, custo
         conditionalProps["value"] = value
     }
 
+    const onInputValueChange = (searchValue: string, event: any) =>{
+        console.log(searchValue, event)
+    }
+
     return (
-        <Combobox items={options} onValueChange={onValueChange} {...conditionalProps} multiple={isMulti} defaultValue={defaultValue}>
+        <Combobox items={options} onValueChange={onValueChange} onInputValueChange={onInputValueChange} {...conditionalProps} multiple={isMulti} defaultValue={defaultValue}>
             {isMulti ? getMultiInput() : getSingleInput()}
             <ComboboxContent>
                 <ComboboxEmpty>When Item list is empty</ComboboxEmpty>
