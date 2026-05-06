@@ -55,11 +55,16 @@ export default function SelectExp() {
                     options={[]}
                     labelKey={"label"}
                     valueKey={"value"}
+                    emptyOptionContent={"Add new"}
+                    createNewItem={(searchText: string, setNewOptions: (newOptions: Array<any>) => void) => {
+                        console.log("Create new item with value: ", searchText)
+                        setNewOptions([{label: "Bangladesh", value: "BD"}])
+                    }}
                     />
             </InputFrame>
 
 
-            <div className={"text-xl"}>Basic UI Component</div>
+            <div className={"text-xl mt-6"}>Basic UI Component</div>
 
             <div className={"mt-5"}>
                 <BasicUIAsyncComboBox/>

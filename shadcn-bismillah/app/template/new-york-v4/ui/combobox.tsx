@@ -198,16 +198,21 @@ function ComboboxCollection({ ...props }: ComboboxPrimitive.Collection.Props) {
   )
 }
 
-function ComboboxEmpty({ className, ...props }: ComboboxPrimitive.Empty.Props) {
+function ComboboxEmpty({className, type = "message", ...props}: {type?: "message" | "action" } & ComboboxPrimitive.Empty.Props) {
+  let typeClassName: string = "text-sm text-muted-foreground"
+  if (type === "action") {
+    typeClassName = "text-sm cursor-default"
+  }
   return (
-    <ComboboxPrimitive.Empty
-      data-slot="combobox-empty"
-      className={cn(
-        "hidden w-full justify-center py-2 text-center text-sm text-muted-foreground group-data-empty/combobox-content:flex",
-        className
-      )}
-      {...props}
-    />
+      <ComboboxPrimitive.Empty
+          data-slot="combobox-empty"
+          className={cn(
+              "hidden w-full justify-center py-2 text-center group-data-empty/combobox-content:flex",
+              className,
+              typeClassName
+          )}
+          {...props}
+      />
   )
 }
 
@@ -216,7 +221,7 @@ function ComboboxStatus({ className, ...props }: ComboboxPrimitive.Status.Props)
     <ComboboxPrimitive.Status
       data-slot="combobox-status"
       className={cn(
-        "hidden w-full justify-center py-2 text-center text-sm text-muted-foreground group-data-empty/combobox-content:flex",
+        "hidden w-full justify-center items-center gap-1 al py-2 text-muted-foreground flex",
         className
       )}
       {...props}
