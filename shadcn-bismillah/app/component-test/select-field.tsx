@@ -29,6 +29,29 @@ export const defaultOptions = [
     {label: "United Arab Emirates", value: "AE"},
 ];
 
+export const extraOptions = [
+    { label: "Afghanistan", value: "AF" },
+    { label: "Argentina", value: "AR" },
+    { label: "Brazil", value: "BR" },
+    { label: "Mexico", value: "MX" },
+    { label: "Italy", value: "IT" },
+    { label: "Spain", value: "ES" },
+    { label: "Netherlands", value: "NL" },
+    { label: "Sweden", value: "SE" },
+    { label: "Norway", value: "NO" },
+    { label: "Denmark", value: "DK" },
+    { label: "Switzerland", value: "CH" },
+    { label: "New Zealand", value: "NZ" },
+    { label: "Singapore", value: "SG" },
+    { label: "Malaysia", value: "MY" },
+    { label: "Indonesia", value: "ID" },
+    { label: "Thailand", value: "TH" },
+    { label: "Vietnam", value: "VN" },
+    { label: "South Africa", value: "ZA" },
+    { label: "Egypt", value: "EG" },
+    { label: "Nigeria", value: "NG" },
+];
+
 
 interface SelectFieldProps {
     isMulti?: boolean
@@ -59,16 +82,6 @@ export default function SelectField({options, labelKey, valueKey, isMulti, custo
         });
         return Array.from(map.values());
     }, [dynamicOptions, options, valueKey]);
-
-    const isNotInOption = React.useMemo(() => {
-        if (!searchText) {
-            return false
-        }
-
-        return !mergedItems.some(
-            (item: any) => item?.[valueKey] === searchText
-        );
-    }, [mergedItems, searchText, valueKey]);
 
     const selectedItemSet = React.useMemo(() => {
         return new Set((Array.isArray(value) ? value : []).map(v => v[valueKey]));
@@ -112,10 +125,15 @@ export default function SelectField({options, labelKey, valueKey, isMulti, custo
         conditionalProps["value"] = value
     }
 
-    const onInputValueChange = React.useCallback((searchValue: string) => {
-        setSearchText(searchValue);
-        setShowEmptyOption(true);
-        if (loadNewItem && isNotInOption) {
+    const onInputValueChange = React.useCallback((searchValue: string, event: any) => {
+        const trimmed = searchValue.trim();
+        setSearchText(trimmed);
+        if (loadNewItem && !isLoading) {
+            let refinedSearchText: string = trimmed.toLowerCase();
+            let willCall: boolean = !mergedItems.some((item: any) => (String(item?.[labelKey]).toLowerCase().includes(refinedSearchText)));
+            if (!willCall) {
+                return
+            }
             loadNewItem((isLoading: boolean) => {
                 setLoading(isLoading);
             }, (newOptions: Array<any>) => {
@@ -126,10 +144,11 @@ export default function SelectField({options, labelKey, valueKey, isMulti, custo
                 setLoading(false)
             })
         }
-    }, []);
+        setShowEmptyOption(true);
+    }, [isLoading]);
 
     const getEmptyContent = React.useCallback(() => {
-        if (!showEmptyOption) {
+        if (!showEmptyOption || isLoading) {
             return ""
         }
         let emptyContent: any = emptyOptionContent
@@ -140,7 +159,6 @@ export default function SelectField({options, labelKey, valueKey, isMulti, custo
                 <div className={"w-full"} onClick={() => {
                     setShowEmptyOption(false);
                     createNewItem(searchText, (newOptions: Array<any>) => {
-                        console.log("create new item", newOptions);
                         setDynamicOptions(prev => [
                             ...prev,
                             ...newOptions
@@ -150,7 +168,7 @@ export default function SelectField({options, labelKey, valueKey, isMulti, custo
             )
         }
         return (<ComboboxEmpty type={emptyType}>{emptyContent}</ComboboxEmpty>)
-    }, [])
+    }, [isLoading])
 
     const getStatus = () => {
         let content: any = null

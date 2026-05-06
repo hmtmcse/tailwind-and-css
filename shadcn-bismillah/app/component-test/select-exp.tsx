@@ -1,5 +1,5 @@
 import {InputFrame} from "~/input/input-frame";
-import SelectField, {defaultOptions} from "~/component-test/select-field";
+import SelectField, {defaultOptions, extraOptions} from "~/component-test/select-field";
 import BasicUIAsyncComboBox from "./base-ui/async-combobox/async-combobox";
 import CreatableCombobox from "~/component-test/base-ui/creatable-combobox/creatablecombobox";
 
@@ -47,7 +47,7 @@ export default function SelectExp() {
             <InputFrame
                 className={"mt-5"}
                 label={"Country"}
-                hintsMessage={"Async options"}
+                hintsMessage={"Add new options"}
                 errorMessage={"Please select a country"}
                 required={true}
             >
@@ -63,16 +63,40 @@ export default function SelectExp() {
                     />
             </InputFrame>
 
+            <InputFrame
+                className={"mt-5"}
+                label={"Country"}
+                hintsMessage={"Async options"}
+                errorMessage={"Please select a country"}
+                required={true}
+            >
+                <SelectField
+                    isMulti={true}
+                    options={defaultOptions}
+                    labelKey={"label"}
+                    valueKey={"value"}
+                    emptyOptionContent={"Item not found"}
+                    loadNewItem={(updateLoader: (isLoading: boolean) => void, setNewOptions: (newOptions: Array<any>) => void) => {
+                        console.log("Called Load New Item");
+                        updateLoader(true)
+                        setTimeout(() => {
+                            console.log("Fired after 2 seconds");
+                            setNewOptions(extraOptions)
+                        }, 2000);
+                    }}
+                />
+            </InputFrame>
 
-            <div className={"text-xl mt-6"}>Basic UI Component</div>
 
-            <div className={"mt-5"}>
-                <BasicUIAsyncComboBox/>
-            </div>
+            {/*<div className={"text-xl mt-6"}>Basic UI Component</div>*/}
 
-            <div className={"mt-5"}>
-                <CreatableCombobox/>
-            </div>
+            {/*<div className={"mt-5"}>*/}
+            {/*    <BasicUIAsyncComboBox/>*/}
+            {/*</div>*/}
+
+            {/*<div className={"mt-5"}>*/}
+            {/*    <CreatableCombobox/>*/}
+            {/*</div>*/}
 
 
         </div>
