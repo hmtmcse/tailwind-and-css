@@ -48,7 +48,7 @@ function DialogDemo() {
         <DialogContent className="sm:max-w-sm">
 
           <DialogHeader>
-            <DialogTitle>Edit profile</DialogTitle>
+            <DialogTitle>This Title is For Edit profile Please Check the Spacing</DialogTitle>
             <DialogDescription>
               Make changes to your profile here. Click save when you&apos;re
               done.
@@ -65,6 +65,7 @@ function DialogDemo() {
               <Input id="username-1" name="username" defaultValue="@peduarte" />
             </Field>
           </FieldGroup>
+
           <DialogFooter>
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
@@ -85,23 +86,26 @@ function SheetDemo() {
             </SheetTrigger>
 
 
-            <SheetContent side={"bottom"}>
+            <SheetContent side={"right"}>
                 <SheetHeader>
-                    <SheetTitle>Edit profile</SheetTitle>
+                    <SheetTitle>This Title is For Edit profile Please Check the Spacing</SheetTitle>
                     <SheetDescription>
-                        Make changes to your profile here. Click save when you&apos;re done.
+                        Make changes to your profile here. Click save when you&apos;re
+                        done.
                     </SheetDescription>
                 </SheetHeader>
-                <div className="grid flex-1 auto-rows-min gap-6 px-4">
-                    <div className="grid gap-3">
-                        <Label htmlFor="sheet-demo-name">Name</Label>
-                        <Input id="sheet-demo-name" defaultValue="Pedro Duarte"/>
-                    </div>
-                    <div className="grid gap-3">
-                        <Label htmlFor="sheet-demo-username">Username</Label>
-                        <Input id="sheet-demo-username" defaultValue="@peduarte"/>
-                    </div>
-                </div>
+
+                <FieldGroup className={"px-4"}>
+                    <Field>
+                        <Label htmlFor="name-1">Name</Label>
+                        <Input id="name-1" name="name" defaultValue="Pedro Duarte"/>
+                    </Field>
+                    <Field>
+                        <Label htmlFor="username-1">Username</Label>
+                        <Input id="username-1" name="username" defaultValue="@peduarte"/>
+                    </Field>
+                </FieldGroup>
+
                 <SheetFooter>
                     <Button type="submit">Save changes</Button>
                     <SheetClose asChild>
@@ -144,7 +148,8 @@ export default function DialogTest() {
             <DialogDemo/>
             <div className={"my-4"}><SheetDemo/></div>
             <div className={"my-4"}><AlertDialogDemo/></div>
-            <div className={"my-4"}><MFDialog/></div>
+            <div className={"my-4"}><MFDialog dialogSize={"full"}/></div>
+            {/*<div className={"my-4"}><MFDialog type={"drawer"}/></div>*/}
         </div>
     )
 }
