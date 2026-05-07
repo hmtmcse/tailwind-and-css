@@ -8,4 +8,5 @@ export default [
     route("/testing/input", "component-test/input-field.tsx"),
     route("/testing/select", "component-test/select-exp.tsx"),
     route("/testing/image", "component-test/image-testing.tsx"),
+    route("/testing/dialog", "component-test/dialog-test.tsx"),
 ] satisfies RouteConfig
