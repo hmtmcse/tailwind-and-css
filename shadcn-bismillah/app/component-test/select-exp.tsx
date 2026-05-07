@@ -2,6 +2,7 @@ import {InputFrame} from "~/input/input-frame";
 import SelectField, {defaultOptions, extraOptions} from "~/component-test/select-field";
 import BasicUIAsyncComboBox from "./base-ui/async-combobox/async-combobox";
 import CreatableCombobox from "~/component-test/base-ui/creatable-combobox/creatablecombobox";
+import Dropzone from "react-dropzone";
 
 export async function loader() {
     return {message: "Hello Task"}
@@ -69,6 +70,7 @@ export default function SelectExp() {
                 hintsMessage={"Async options"}
                 errorMessage={"Please select a country"}
                 required={true}
+                isError={true}
             >
                 <SelectField
                     isMulti={true}
@@ -85,6 +87,42 @@ export default function SelectExp() {
                         }, 2000);
                     }}
                 />
+            </InputFrame>
+
+
+            <InputFrame
+                className={"mt-5"}
+                label={"Upload File"}
+                hintsMessage={"Customized Input"}
+                errorMessage={"Please select a country"}
+                required={true}
+                isError={true}
+            >
+                <Dropzone onDrop={acceptedFiles => console.log(acceptedFiles)}>
+                    {({getRootProps, getInputProps, isDragActive}) => (
+                        <section>
+                            <div
+                                aria-invalid={true}
+                                {...getRootProps()}
+                                className={`
+          flex items-center justify-center
+          w-full h-40
+          border-2 border-dashed rounded-lg
+          cursor-pointer
+          transition
+          ${isDragActive ? "border-blue-500 bg-blue-50" : "border-gray-300"} aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40,
+        `}
+                            >
+                                <input {...getInputProps()} />
+                                <p className="text-gray-500">
+                                    {isDragActive
+                                        ? "Drop files here..."
+                                        : "Drag & drop files here, or click"}
+                                </p>
+                            </div>
+                        </section>
+                    )}
+                </Dropzone>
             </InputFrame>
 
 

@@ -15,12 +15,14 @@ import {Label} from "./../components/ui/label"
 
 export function DialogDemo() {
     return (
-        <Dialog>
+        <Dialog onOpenChange={(open) => console.log("Dialog open state:", open)}>
             <form>
                 <DialogTrigger asChild>
-                    <Button variant="outline">Open Dialog</Button>
+                    <Button variant="outline"> Exp Open Dialog</Button>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-sm">
+
+
+                <DialogContent className={"w- h-full"}>
                     <DialogHeader>
                         <DialogTitle>Edit profile</DialogTitle>
                         <DialogDescription>
