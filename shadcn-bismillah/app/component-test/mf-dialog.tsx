@@ -4,27 +4,30 @@ import {cva} from "class-variance-authority";
 import {Button} from "~/template/new-york-v4/ui/button";
 import {cn} from "~/lib/utils";
 import {XIcon} from "lucide-react";
+import {Field, FieldGroup} from "~/template/new-york-v4/ui/field";
+import {Label} from "~/template/new-york-v4/ui/label";
+import {Input} from "~/template/new-york-v4/ui/input";
 
 const contentVariations = cva(
     "",
     {
         variants: {
             type: {
-                dialog: "fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-1rem)] translate-x-[-50%] translate-y-[-50%] gap-3 rounded-lg border bg-background p-6 shadow-lg duration-200 outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
-                drawer: "",
+                dialog: "fixed top-[50%] left-[50%] z-50 flex flex-col w-full max-w-[calc(100%-1rem)] max-h-[calc(100%-1rem)] translate-x-[-50%] translate-y-[-50%] gap-2 rounded-lg border bg-background p-5 shadow-lg duration-200 outline-none data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
+                drawer: "fixed z-50 bg-background p-5 gap-2 flex flex-col  shadow-lg transition ease-in-out data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:animate-in data-[state=open]:duration-500",
                 alert: "",
             },
             slideFrom: {
-                right: "",
-                left: "",
-                top: "",
-                bottom: "",
+                right: "inset-y-0 right-0 h-full w-3/4 border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
+                left: "inset-y-0 left-0 h-full w-3/4 border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm",
+                top: "inset-x-0 top-0 h-auto max-h-[calc(100%-10rem)] border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
+                bottom: "inset-x-0 bottom-0 h-auto max-h-[calc(100%-10rem)] border-t data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom",
             },
             dialogSize: {
                 small: "max-w-lg",
                 medium: "max-w-2xl",
                 large: "max-w-6xl",
-                full: "h-full max-h-[calc(100%-1rem)]",
+                full: "h-full",
             }
         }
     }
@@ -73,7 +76,7 @@ function DialogOverlay({
 }
 
 function DialogContent(
-    { className, children, showCloseButton = true, type = "dialog", dialogSize = "small", ...props }: React.ComponentProps<typeof DialogPrimitive.Content> & DialogPropsBase) {
+    { className, children, showCloseButton = true, type = "dialog", dialogSize = "small", slideFrom = "right", ...props }: React.ComponentProps<typeof DialogPrimitive.Content> & DialogPropsBase) {
 
     let variations: Record<string, string> = {
         type: type
@@ -81,9 +84,11 @@ function DialogContent(
 
     if (type === "dialog") {
         variations["dialogSize"] = dialogSize
+    } else if (type === "drawer") {
+        variations["slideFrom"] = slideFrom
     }
 
-    console.log(variations)
+    console.log("variations", variations)
 
     return (
         <DialogPortal data-slot="dialog-portal">
@@ -116,7 +121,7 @@ function DialogHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="dialog-header"
-      className={cn("flex flex-col gap-2 text-center sm:text-left", className)}
+      className={cn("flex flex-col gap-2", className)}
       {...props}
     />
   )
@@ -134,7 +139,7 @@ function DialogFooter({
     <div
       data-slot="dialog-footer"
       className={cn(
-        "flex flex-col-reverse gap-2 flex-row justify-end",
+          "mt-auto flex flex-row justify-end gap-2",
         className
       )}
       {...props}
@@ -187,8 +192,30 @@ export default function MFDialog({type = "dialog", dialogSize = "small", slideFr
                             done.
                         </DialogSubTitle>
                     </DialogHeader>
+                    <div className={"overflow-y-auto"}>
+                        Body Content
 
-                    Body Content
+
+
+                        <FieldGroup>
+                            <Field>
+                                <Label htmlFor="name-1">Name</Label>
+                                <Input id="name-1" name="name" defaultValue="Pedro Duarte"/>
+                            </Field>
+                            <Field>
+                                <Label htmlFor="username-1">Username</Label>
+                                <Input id="username-1" name="username" defaultValue="@peduarte"/>
+                            </Field>
+                        </FieldGroup>
+
+
+                    </div>
+
+
+
+
+
+
 
                     <DialogFooter>
                         <DialogClose asChild>

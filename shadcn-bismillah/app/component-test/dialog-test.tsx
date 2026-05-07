@@ -149,7 +149,7 @@ export default function DialogTest() {
             <div className={"my-4"}><SheetDemo/></div>
             <div className={"my-4"}><AlertDialogDemo/></div>
             <div className={"my-4"}><MFDialog dialogSize={"full"}/></div>
-            {/*<div className={"my-4"}><MFDialog type={"drawer"}/></div>*/}
+            <div className={"my-4"}><MFDialog type={"drawer"} slideFrom={"top"}/></div>
         </div>
     )
 }
