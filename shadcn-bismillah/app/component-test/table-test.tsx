@@ -75,6 +75,26 @@ const invoices = [
   },
 ]
 
+
+interface TableColumnProps {
+    headerName?: string
+    fieldName?: string
+    defaultValue?: any
+    sortable?: boolean
+    customize?: (row: any, data: any[], fieldName?: string, headerName?: string) => any
+    thClassName?: string
+    tdClassName?: string
+}
+
+interface TableProps {
+    columns: TableColumnProps[]
+    data: any[]
+    onChangeItemPerPage?: (itemPerPage: number) => void
+    onChangePagination?: (pageNumber:number, itemPerPage: number) => void
+    itemPerPageOptions?: number[]
+}
+
+
 function PaginationIconsOnly() {
     return (
         <div className="flex items-center gap-2 float-end mt-3">
