@@ -119,6 +119,161 @@ function PaginationIconsOnly() {
     )
 }
 
+function RawPagination2() {
+    return (
+        <nav className="flex items-center space-x-4">
+            <ul className="flex -space-x-px text-sm">
+                <li>
+                    <a href="#"
+                       className="flex items-center justify-center text-body bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading shadow-xs font-medium leading-5 rounded-s-base text-sm px-3 h-9 focus:outline-none">Previous</a>
+                </li>
+                <li>
+                    <a href="#"
+                       className="flex items-center justify-center text-body bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading shadow-xs font-medium leading-5 text-sm w-9 h-9 focus:outline-none">1</a>
+                </li>
+                <li>
+                    <a href="#"
+                       className="flex items-center justify-center text-body bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading shadow-xs font-medium leading-5 text-sm w-9 h-9 focus:outline-none">2</a>
+                </li>
+                <li>
+                    <a href="#" aria-current="page"
+                       className="flex items-center justify-center text-fg-brand bg-neutral-tertiary-medium box-border border border-default-medium hover:text-fg-brand font-medium text-sm w-9 h-9 focus:outline-none">3</a>
+                </li>
+                <li>
+                    <a href="#"
+                       className="flex items-center justify-center text-body bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading shadow-xs font-medium leading-5 text-sm w-9 h-9 focus:outline-none">4</a>
+                </li>
+                <li>
+                    <a href="#"
+                       className="flex items-center justify-center text-body bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading shadow-xs font-medium leading-5 text-sm w-9 h-9 focus:outline-none">5</a>
+                </li>
+                <li>
+                    <a href="#"
+                       className="flex items-center justify-center text-body bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading shadow-xs font-medium leading-5 rounded-e-base text-sm px-3 h-9 focus:outline-none">Next</a>
+                </li>
+            </ul>
+            <form className="w-32 mx-auto">
+                <label htmlFor="countries" className="sr-only">Select an option</label>
+                <select id="countries"
+                        className="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm leading-4 rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
+                    <option selected>10 per page</option>
+                    <option value="25">25 per page</option>
+                    <option value="50">50 per page</option>
+                    <option value="100">100 per page</option>
+                </select>
+            </form>
+        </nav>
+    )
+}
+
+function RawPagination() {
+    return (
+        <>
+            <nav>
+                <ul className="flex -space-x-px text-sm">
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-s-base text-sm w-9 h-9 focus:outline-none">
+                            <span className="sr-only">Previous</span>
+                            <svg className="w-4 h-4 rtl:rotate-180" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="m15 19-7-7 7-7"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-9 h-9 focus:outline-none">1</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-9 h-9 focus:outline-none">2</a>
+                    </li>
+                    <li>
+                        <a href="#" aria-current="page"
+                           className="flex items-center justify-center text-fg-brand bg-neutral-tertiary-medium box-border border border-default-medium hover:text-fg-brand font-medium text-sm w-9 h-9 focus:outline-none">3</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-9 h-9 focus:outline-none">4</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-9 h-9 focus:outline-none">5</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-e-base text-sm w-9 h-9 focus:outline-none">
+                            <span className="sr-only">Next</span>
+                            <svg className="w-4 h-4 rtl:rotate-180" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="m9 5 7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <nav>
+                <ul className="flex -space-x-px text-sm">
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-s-base text-sm w-10 h-10 focus:outline-none">
+                            <span className="sr-only">Previous</span>
+                            <svg className="w-4 h-4 rtl:rotate-180" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg" width="24"
+                                 height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="m15 19-7-7 7-7"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-10 h-10 focus:outline-none">1</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-10 h-10 focus:outline-none">2</a>
+                    </li>
+                    <li>
+                        <a href="#" aria-current="page"
+                           className="flex items-center justify-center text-fg-brand bg-neutral-tertiary-medium box-border border border-default-medium hover:text-fg-brand font-medium text-sm w-10 h-10 focus:outline-none">3</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-10 h-10 focus:outline-none">4</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium text-sm w-10 h-10 focus:outline-none">5</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           className="flex items-center justify-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading font-medium rounded-e-base text-sm w-10 h-10 focus:outline-none">
+                            <span className="sr-only">Next</span>
+                            <svg className="w-4 h-4 rtl:rotate-180" aria-hidden="true"
+                                 xmlns="http://www.w3.org/2000/svg" width="24"
+                                 height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="m9 5 7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </>
+    )
+}
+
 function TableDemo() {
     return (
         <>
@@ -127,20 +282,20 @@ function TableDemo() {
                     <TableRow>
                         <TableHead className="w-[100px]">
                             <div className="flex items-center gap-1 cursor-pointer">
+                                <a href="#"><ArrowDownUp size={14}/></a>
                                 Invoice
-                                <a href="#"><ArrowDownUp size={12}/></a>
                             </div>
                         </TableHead>
                         <TableHead>
                             <div className="flex items-center gap-1 cursor-pointer">
+                                <a href="#"><ArrowUpAZ size={14}/></a>
                                 Status
-                                <a href="#"><ArrowUpAZ size={12}/></a>
                             </div>
                         </TableHead>
                         <TableHead>
                             <div className="flex items-center gap-1 cursor-pointer">
+                                <a href="#"><ArrowDownZA size={14}/></a>
                                 Method
-                                <a href="#"><ArrowDownZA size={12}/></a>
                             </div>
                         </TableHead>
                         <TableHead className="text-right">Amount</TableHead>
@@ -173,6 +328,7 @@ export default function TableTest() {
     return (
         <div className={"m-5"}>
             <TableDemo/>
+            <RawPagination2/>
         </div>
     )
 }
