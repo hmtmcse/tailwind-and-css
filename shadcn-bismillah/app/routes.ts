@@ -9,4 +9,5 @@ export default [
     route("/testing/select", "component-test/select-exp.tsx"),
     route("/testing/image", "component-test/image-testing.tsx"),
     route("/testing/dialog", "component-test/dialog-test.tsx"),
+    route("/testing/dropdown", "component-test/dropdown-test.tsx"),
 ] satisfies RouteConfig
