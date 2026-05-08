@@ -14,4 +14,6 @@ export default [
     route("/testing/tab", "component-test/tab-test.tsx"),
     route("/panel/sidebar-07", "app-frame/sidebar-07/page.tsx"),
     route("/panel/dashboard-01", "app-frame/dashboard-01/page.tsx"),
+    route("/panel/login-02", "app-frame/login-02/page.tsx"),
+    route("/panel/login-04", "app-frame/login-04/page.tsx"),
 ] satisfies RouteConfig
