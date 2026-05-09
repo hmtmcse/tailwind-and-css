@@ -1,9 +1,9 @@
 import { Button } from "~/template/new-york-v4/ui/button";
 import {Card, CardContent} from "~/template/new-york-v4/ui/card";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "~/template/new-york-v4/ui/collapsible";
-import {ChevronDown, ChevronDownIcon, Settings} from "lucide-react";
+import {Airplay, ChevronDown, ChevronDownIcon, Settings} from "lucide-react";
 import {
-    Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel,
+    Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel,
     SidebarHeader, SidebarInset,
     SidebarMenu, SidebarMenuAction, SidebarMenuBadge,
     SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem,
@@ -37,6 +37,16 @@ function CollapsibleBasic() {
                 </Collapsible>
             </CardContent>
         </Card>
+    )
+}
+
+function getSimpleSidebarItem(){
+    return (
+        <SidebarMenu>
+            <SidebarMenuItem>
+                <SidebarMenuButton><Airplay /> Simple Overview</SidebarMenuButton>
+            </SidebarMenuItem>
+        </SidebarMenu>
     )
 }
 
@@ -86,6 +96,7 @@ function SidebarBasicTest() {
             <SidebarContent>
 
                 {getSidebarMenuItem()}
+                {getSimpleSidebarItem()}
 
             </SidebarContent>
             <SidebarFooter>
