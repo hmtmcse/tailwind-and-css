@@ -12,6 +12,7 @@ export default [
     route("/testing/dropdown", "component-test/dropdown-test.tsx"),
     route("/testing/table", "component-test/table-test.tsx"),
     route("/testing/tab", "component-test/tab-test.tsx"),
+    route("/testing/sidebar", "component-test/sidebar-test.tsx"),
     route("/panel/sidebar-07", "app-frame/sidebar-07/page.tsx"),
     route("/panel/dashboard-01", "app-frame/dashboard-01/page.tsx"),
     route("/panel/login-02", "app-frame/login-02/page.tsx"),
