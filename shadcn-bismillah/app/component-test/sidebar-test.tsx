@@ -47,6 +47,7 @@ function CollapsibleBasic() {
 export default function SidebarTest() {
     return(
         <div className={"m-4"}>
+            {/*<CollapsibleBasic2/>*/}
             <CollapsibleBasic/>
             <CollapsibleBasicTest/>
             Sidebar Test

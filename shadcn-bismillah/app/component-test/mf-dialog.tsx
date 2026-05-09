@@ -7,6 +7,7 @@ import {XIcon} from "lucide-react";
 import {Field, FieldGroup} from "~/template/new-york-v4/ui/field";
 import {Label} from "~/template/new-york-v4/ui/label";
 import {Input} from "~/template/new-york-v4/ui/input";
+import {ScrollArea} from "~/template/new-york-v4/ui/scroll-area";
 
 const contentVariations = cva(
     "",
@@ -192,28 +193,71 @@ export default function MFDialog({type = "dialog", dialogSize = "small", slideFr
                             done.
                         </DialogSubTitle>
                     </DialogHeader>
-                    <div className={"overflow-y-auto"}>
-                        Body Content
+                    <ScrollArea>
+                        <div className={"overflow-y-auto"}>
+                            Body Content
+                            <FieldGroup>
+                                <Field>
+                                    <Label htmlFor="name-1">Name</Label>
+                                    <Input id="name-1" name="name" defaultValue="Pedro Duarte"/>
+                                </Field>
+                                <Field>
+                                    <Label htmlFor="username-1">Username</Label>
+                                    <Input id="username-1" name="username" defaultValue="@peduarte"/>
+                                </Field>
+                            </FieldGroup>
+
+                            <FieldGroup>
+                                <Field>
+                                    <Label htmlFor="name-1">Name</Label>
+                                    <Input id="name-1" name="name" defaultValue="Pedro Duarte"/>
+                                </Field>
+                                <Field>
+                                    <Label htmlFor="username-1">Username</Label>
+                                    <Input id="username-1" name="username" defaultValue="@peduarte"/>
+                                </Field>
+                            </FieldGroup>
 
 
-
-                        <FieldGroup>
-                            <Field>
-                                <Label htmlFor="name-1">Name</Label>
-                                <Input id="name-1" name="name" defaultValue="Pedro Duarte"/>
-                            </Field>
-                            <Field>
-                                <Label htmlFor="username-1">Username</Label>
-                                <Input id="username-1" name="username" defaultValue="@peduarte"/>
-                            </Field>
-                        </FieldGroup>
-
-
-                    </div>
+                            <FieldGroup>
+                                <Field>
+                                    <Label htmlFor="name-1">Name</Label>
+                                    <Input id="name-1" name="name" defaultValue="Pedro Duarte"/>
+                                </Field>
+                                <Field>
+                                    <Label htmlFor="username-1">Username</Label>
+                                    <Input id="username-1" name="username" defaultValue="@peduarte"/>
+                                </Field>
+                            </FieldGroup>
 
 
+                            <FieldGroup>
+                                <Field>
+                                    <Label htmlFor="name-1">Name</Label>
+                                    <Input id="name-1" name="name" defaultValue="Pedro Duarte"/>
+                                </Field>
+                                <Field>
+                                    <Label htmlFor="username-1">Username</Label>
+                                    <Input id="username-1" name="username" defaultValue="@peduarte"/>
+                                </Field>
+                            </FieldGroup>
+
+                            <FieldGroup>
+                                <Field>
+                                    <Label htmlFor="name-1">Name</Label>
+                                    <Input id="name-1" name="name" defaultValue="Pedro Duarte"/>
+                                </Field>
+                                <Field>
+                                    <Label htmlFor="username-1">Username</Label>
+                                    <Input id="username-1" name="username" defaultValue="@peduarte"/>
+                                </Field>
+                            </FieldGroup>
 
 
+                        </div>
+
+
+                    </ScrollArea>
 
 
 
