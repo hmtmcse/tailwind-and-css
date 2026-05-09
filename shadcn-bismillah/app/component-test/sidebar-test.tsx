@@ -1,22 +1,19 @@
 import { Button } from "~/template/new-york-v4/ui/button";
 import {Card, CardContent} from "~/template/new-york-v4/ui/card";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "~/template/new-york-v4/ui/collapsible";
-import {ChevronDownIcon} from "lucide-react";
+import {ChevronDown, ChevronDownIcon, Settings} from "lucide-react";
+import {
+    Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel,
+    SidebarHeader, SidebarInset,
+    SidebarMenu, SidebarMenuAction, SidebarMenuBadge,
+    SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem,
+    SidebarProvider, SidebarRail, SidebarTrigger
+} from "~/template/new-york-v4/ui/sidebar";
+import * as React from "react";
+import {IconMail} from "@tabler/icons-react";
 
 export async function loader() {
     return {message: "Hello Task"}
-}
-
-function CollapsibleBasicTest() {
-    return (
-        <Collapsible>
-            <CollapsibleTrigger>Can I use this in my project?</CollapsibleTrigger>
-            <CollapsibleContent>
-                Yes. Free to use for personal and commercial projects. No attribution
-                required.
-            </CollapsibleContent>
-        </Collapsible>
-    )
 }
 
 function CollapsibleBasic() {
@@ -43,14 +40,77 @@ function CollapsibleBasic() {
     )
 }
 
+function getSidebarMenuItem() {
+    return (
+        <SidebarGroup>
+            <SidebarGroupLabel>Platform</SidebarGroupLabel>
+            <SidebarMenu>
+                <SidebarMenuItem>
+                    <SidebarMenuButton variant={"outline"} size={"default"} isActive={false}>
+                        <Settings /> Overview
+                    </SidebarMenuButton>
+                    {/*<SidebarMenuAction>Action</SidebarMenuAction>*/}
+                    <SidebarMenuBadge><IconMail /></SidebarMenuBadge>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                    <SidebarMenuButton>Other</SidebarMenuButton>
+                    <SidebarMenuSub>
+                        <SidebarMenuSubItem>
+                            <SidebarMenuSubButton>
+                                Submenu Item 1
+                            </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                        <SidebarMenuSubItem>
+                            <SidebarMenuSubButton>
+                                Submenu Item 2
+                            </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                        <SidebarMenuSubItem>
+                            <SidebarMenuSubButton>
+                                Submenu Item 3
+                            </SidebarMenuSubButton>
+                        </SidebarMenuSubItem>
+                    </SidebarMenuSub>
+                </SidebarMenuItem>
+            </SidebarMenu>
+        </SidebarGroup>
+    )
+}
+
+function SidebarBasicTest() {
+    return (
+        <Sidebar>
+            <SidebarHeader>
+                Sidebar Header
+            </SidebarHeader>
+            <SidebarContent>
+
+                {getSidebarMenuItem()}
+
+            </SidebarContent>
+            <SidebarFooter>
+                Sidebar Footer
+            </SidebarFooter>
+
+            <SidebarRail/>
+        </Sidebar>
+    )
+}
+
 
 export default function SidebarTest() {
-    return(
+    return (
         <div className={"m-4"}>
-            {/*<CollapsibleBasic2/>*/}
-            <CollapsibleBasic/>
-            <CollapsibleBasicTest/>
-            Sidebar Test
+            <SidebarProvider>
+                <SidebarBasicTest/>
+
+                <SidebarInset>
+                     <SidebarTrigger className="-ml-1" />
+                    <CollapsibleBasic/>
+                    Sidebar Test
+                </SidebarInset>
+
+            </SidebarProvider>
         </div>
     )
 }
