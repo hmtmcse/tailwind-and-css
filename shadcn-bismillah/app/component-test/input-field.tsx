@@ -20,9 +20,7 @@ import {
 } from "~/template/new-york-v4/ui/input-group";
 import {
     CalendarIcon,
-    Check,
     ChevronDownIcon,
-    ChevronsUpDown,
     CopyIcon,
     FileCodeIcon,
     InfoIcon,
@@ -61,7 +59,6 @@ import {
 } from "~/template/new-york-v4/ui/combobox";
 import {Item, ItemContent, ItemDescription, ItemTitle} from "~/template/new-york-v4/ui/item";
 import {InputFrame} from "~/input/input-frame";
-import SelectField, {defaultOptions} from "~/component-test/select-field";
 
 
 export async function loader() {

@@ -34,6 +34,18 @@ const contentVariations = cva(
     }
 )
 
+interface DialogEngine {
+    open: (title?: string, subTitle?: string, slideFrom?: SlideFrom) => void
+    close: () => void
+}
+
+interface DialogFooterActionButton {
+    verient: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
+    label: React.ReactNode
+    data?: any
+    onClick: (data?: any) => void
+}
+
 type SlideFrom = "right" | "left" | "top" | "bottom";
 type DialogType = "dialog" | "drawer" | "alert";
 type DialogSize = "small" | "medium" | "large" | "full";
@@ -43,6 +55,13 @@ export interface DialogPropsBase {
     slideFrom?: SlideFrom;
     showCloseButton?: boolean
     dialogSize?: DialogSize
+    header?: React.ReactNode
+    footer?: React.ReactNode
+    body?: React.ReactNode
+    title?: string
+    subTitle?: string
+    isOpen?: boolean
+    footerActionButtons?: any
 }
 
 export interface DialogProps extends DialogPropsBase, React.ComponentProps<typeof DialogPrimitive.Root> {}

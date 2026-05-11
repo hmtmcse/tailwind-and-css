@@ -59,8 +59,8 @@ function getSidebarMenuItem() {
                     <SidebarMenuButton variant={"outline"} size={"default"} isActive={false}>
                         <Settings /> Overview
                     </SidebarMenuButton>
-                    {/*<SidebarMenuAction>Action</SidebarMenuAction>*/}
-                    <SidebarMenuBadge><IconMail /></SidebarMenuBadge>
+                    <SidebarMenuAction showOnHover={true}><IconMail /></SidebarMenuAction>
+                    {/*<SidebarMenuBadge><IconMail /></SidebarMenuBadge>*/}
                 </SidebarMenuItem>
                 <SidebarMenuItem>
                     <SidebarMenuButton>Other</SidebarMenuButton>
