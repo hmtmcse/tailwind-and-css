@@ -12,7 +12,7 @@ export async function loader() {
 
 function DefaultThings() {
     return (
-        <>
+        <div className={"mt-50"}>
 
             <Avatar>
                 <AvatarImage
@@ -73,7 +73,7 @@ function DefaultThings() {
                 </AspectRatio>
             </div>
 
-        </>
+        </div>
     )
 }
 
@@ -108,11 +108,17 @@ export default function ImageTesting() {
                     src={profile}
                     alt={"Profile"}
                     fallback={"TM"}
-                    avatar={"large"}
+                    avatar={"default"}
                     shape={"circle"}/>
             </div>
-            <div className={"mt-2 mb-2"}><DefaultImage src={"https://hmtmcse.com/image.png"} alt={"Profile"} fallback={"TM"} /></div>
-            <div className={"mt-2 mb-2"}><ImageWithStatus src={profile}/></div>
+            <div className={"mt-2 mb-2"}>
+                <DefaultImage
+                    src={"https://hmtmcse.com/image.png"}
+                    alt={"Profile"} fallback={"TM"}
+                    avatar={"default"}
+                    shape={"circle"}
+                />
+            </div>
 
             <DefaultThings/>
         </div>
