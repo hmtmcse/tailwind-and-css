@@ -1,6 +1,10 @@
 import {Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarImage} from "~/template/new-york-v4/ui/avatar";
 import {AspectRatio} from "~/template/new-york-v4/ui/aspect-ratio";
 
+import logo from "./assets/images/logo-green.png"
+import profile from "./assets/images/profile.jpg"
+import DefaultImage from "~/component-test/default-image";
+
 export async function loader() {
     return {message: "Hello Task"}
 }
@@ -26,16 +30,16 @@ function DefaultThings() {
                 <AvatarBadge className="bg-green-600 dark:bg-green-800"/>
             </Avatar>
 
-            <AvatarGroup className="grayscale size-10 mt-5">
-                <Avatar>
+            <AvatarGroup className="grayscale mt-5">
+                <Avatar size={"lg"}>
                     <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn"/>
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
-                <Avatar>
+                <Avatar size={"lg"}>
                     <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter"/>
                     <AvatarFallback>LR</AvatarFallback>
                 </Avatar>
-                <Avatar>
+                <Avatar size={"lg"}>
                     <AvatarImage
                         src="https://github.com/evilrabbit.png"
                         alt="@evilrabbit"
@@ -73,10 +77,44 @@ function DefaultThings() {
     )
 }
 
+interface ImageProps {
+    src: string;
+    altText?: string;
+}
+
+function ImageWithStatus({src, altText}: ImageProps) {
+    return (
+        <span className={"flex shrink-0 size-12 relative"}>
+            <img src={src} alt={altText} className={"aspect-square size-full rounded-full object-cover"}/>
+            <span className="absolute right-0 bottom-0 z-10 rounded-full bg-green-600 ring-2 ring-white size-4"></span>
+        </span>
+    )
+}
+
+function Image({src, altText}: ImageProps) {
+    return (
+        <span className={"flex shrink-0 size-28"}>
+            <img src={src} alt={altText} className={"aspect-square size-full rounded-2xl object-cover"}/>
+        </span>
+    )
+}
+
 export default function ImageTesting() {
     return(
-        <>
+        <div className={"m-5"}>
+
+            <div className={"mt-2 mb-2"}>
+                <DefaultImage
+                    src={profile}
+                    alt={"Profile"}
+                    fallback={"TM"}
+                    avatar={"large"}
+                    shape={"circle"}/>
+            </div>
+            <div className={"mt-2 mb-2"}><DefaultImage src={"https://hmtmcse.com/image.png"} alt={"Profile"} fallback={"TM"} /></div>
+            <div className={"mt-2 mb-2"}><ImageWithStatus src={profile}/></div>
+
             <DefaultThings/>
-        </>
+        </div>
     )
 }

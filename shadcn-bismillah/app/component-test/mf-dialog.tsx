@@ -55,6 +55,7 @@ export interface DialogPropsBase {
     slideFrom?: SlideFrom;
     showCloseButton?: boolean
     dialogSize?: DialogSize
+
     header?: React.ReactNode
     footer?: React.ReactNode
     body?: React.ReactNode
@@ -212,8 +213,7 @@ export default function MFDialog({type = "dialog", dialogSize = "small", slideFr
                             done.
                         </DialogSubTitle>
                     </DialogHeader>
-                    <ScrollArea>
-                        <div className={"overflow-y-auto"}>
+                     <div className={"overflow-y-auto"}>
                             Body Content
                             <FieldGroup>
                                 <Field>
@@ -274,12 +274,6 @@ export default function MFDialog({type = "dialog", dialogSize = "small", slideFr
 
 
                         </div>
-
-
-                    </ScrollArea>
-
-
-
                     <DialogFooter>
                         <DialogClose asChild>
                             <Button variant="outline">Cancel</Button>

@@ -146,6 +146,22 @@ const navigation: DropdownProps = {
                 {nameContent: "Members", action: (data: any) => console.log("Members")},
                 {nameContent: "New Members", action: (data: any) => console.log("Members")},
                 {nameContent: "Old Members", action: (data: any) => console.log("Members")},
+                {
+                    nameContent: "Nested",
+                    nested: [
+                        {nameContent: "Nested 1"},
+                        {nameContent: "Nested 2"},
+                        {nameContent: "Nested 3"},
+                        {
+                            nameContent: "Nested Group",
+                            group: [
+                                {nameContent: "NG 1"},
+                                {nameContent: "NG 2"},
+                                {nameContent: "NG 3"},
+                            ]
+                        },
+                    ]
+                }
             ],
             separator: true
         },
