@@ -103,13 +103,27 @@ export default function ImageTesting() {
     return(
         <div className={"m-5"}>
 
+
+            <div className={""}>
+                <DefaultImage
+                    src={"https://avatars.githubusercontent.com/"}
+                    alt={"BFE Logo"}
+                    shape={"circle"}
+                    className={"w-250"}
+                    fallback={"BF"}
+                />
+            </div>
+
+
             <div className={"mt-2 mb-2"}>
+
                 <DefaultImage
                     src={profile}
                     alt={"Profile"}
                     fallback={"TM"}
                     avatar={"default"}
                     shape={"circle"}/>
+
             </div>
             <div className={"mt-2 mb-2"}>
                 <DefaultImage
