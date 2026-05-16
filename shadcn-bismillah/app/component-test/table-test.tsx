@@ -25,6 +25,7 @@ import {
     PaginationNext,
     PaginationPrevious
 } from "~/template/new-york-v4/ui/pagination";
+import {DefaultPagination} from "~/component-test/default-pagination";
 
 export async function loader() {
     return {message: "Hello Task"}
@@ -76,8 +77,13 @@ const invoices = [
 ]
 
 
+interface TableEngineProps {
+    registerFields(fields: TableColumnProps[]): void
+    loadData(data: Record<any, any>[]): void
+}
+
 interface TableColumnProps {
-    headerName?: string
+    headerContent?: any
     fieldName?: string
     defaultValue?: any
     sortable?: boolean
@@ -87,8 +93,9 @@ interface TableColumnProps {
 }
 
 interface TableProps {
-    columns: TableColumnProps[]
-    data: any[]
+    columns?: TableColumnProps[]
+    data?: Record<any, any>[]
+    enablePagination?: boolean
     onChangeItemPerPage?: (itemPerPage: number) => void
     onChangePagination?: (pageNumber:number, itemPerPage: number) => void
     itemPerPageOptions?: number[]
@@ -172,16 +179,16 @@ function RawPagination2() {
                        className="flex items-center justify-center text-body bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading shadow-xs font-medium leading-5 rounded-e-base text-sm px-3 h-9 focus:outline-none">Next</a>
                 </li>
             </ul>
-            <form className="w-32 mx-auto">
-                <label htmlFor="countries" className="sr-only">Select an option</label>
-                <select id="countries"
-                        className="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm leading-4 rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
-                    <option selected>10 per page</option>
-                    <option value="25">25 per page</option>
-                    <option value="50">50 per page</option>
-                    <option value="100">100 per page</option>
-                </select>
-            </form>
+            {/*<form className="w-32 mx-auto">*/}
+            {/*    <label htmlFor="countries" className="sr-only">Select an option</label>*/}
+            {/*    <select id="countries"*/}
+            {/*            className="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm leading-4 rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">*/}
+            {/*        <option selected>10 per page</option>*/}
+            {/*        <option value="25">25 per page</option>*/}
+            {/*        <option value="50">50 per page</option>*/}
+            {/*        <option value="100">100 per page</option>*/}
+            {/*    </select>*/}
+            {/*</form>*/}
         </nav>
     )
 }
@@ -338,7 +345,7 @@ function TableDemo() {
                     </TableRow>
                 </TableFooter>
             </Table>
-            <PaginationIconsOnly/>
+            {/*<PaginationIconsOnly/>*/}
         </>
     )
 }
@@ -347,7 +354,15 @@ function TableDemo() {
 export default function TableTest() {
     return (
         <div className={"m-5"}>
-            <TableDemo/>
+            {/*<TableDemo/>*/}
+            <DefaultPagination
+                totalPage={50}
+                itemPerPage={15}
+                currentPage={1}
+            />
+
+            <div className={"mt-20"}></div>
+
             <RawPagination2/>
         </div>
     )

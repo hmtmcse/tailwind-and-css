@@ -176,7 +176,7 @@ function BasicStructure() {
                 isChildFirst={false}
                 hintsMessage={"Enter valid name"}
             >
-                <Switch/>
+                <Switch />
             </InputFrame>
 
             <InputFrame

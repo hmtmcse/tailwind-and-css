@@ -114,3 +114,12 @@ export {
   TableCell,
   TableCaption,
 }
+
+
+function TR(){
+
+}
+
+function TD(){
+
+}
